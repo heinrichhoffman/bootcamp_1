@@ -9,7 +9,9 @@ Como busco aperfeiçoamento constante, especialmente em Inteligência Artificial
 ## 🛠️ Tecnologias Utilizadas
 * Python (ou JavaScript)
 * Lógica de Programação
-* [cite_start]Git / GitHub [cite: 16, 17]
+* HTML / CSS
+* VS CODE
+* GOOGLE COLAB
 
 ## ⚙️ Como executar
 1. Clone este repositório na sua máquina local.
