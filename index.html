@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Heinrich Hoffman</title>
+    <title>Heinrich Hoffman | Portfólio</title>
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        /* Importando fontes modernas */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;600;700&display=swap');
 
-        :root{
-            --cor-primaria: #0a0a0a; /* Fundo levemente mais suave que o preto puro */
-            --cor-secundaria: #f6f6f6;
-            --cor-terciaria: #22D4FD;
-            --cor-hover: #1a1a1a;
+        :root {
+            --bg-color: #0f172a; /* Slate 900 - Dark mode moderno */
+            --card-bg: #1e293b; /* Fundo dos cartões */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8; /* Azul Tech */
+            --accent-hover: #0284c7;
         }
 
         * {
@@ -22,167 +24,279 @@
             box-sizing: border-box;
         }
 
-        /* Scroll suave movido para o HTML */
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--cor-primaria);
-            color: var(--cor-secundaria);
-            /* Animação de entrada na página */
-            animation: fadeIn 1.2s ease-in-out;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-in-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- CABEÇALHO FIXO (NOVIDADE) --- */
+        /* --- NAVEGAÇÃO GLASSMORPHISM --- */
         .cabecalho {
             position: sticky;
             top: 0;
-            background-color: rgba(10, 10, 10, 0.95); /* Fundo semi-transparente */
-            backdrop-filter: blur(5px); /* Efeito de vidro */
-            z-index: 100;
-            padding: 2rem 15%;
-            border-bottom: 1px solid #22d4fd33; /* Linha neon sutil embaixo */
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 1.5rem 10%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: flex-end;
         }
 
         .cabecalho__menu {
             display: flex;
-            gap: 3rem;
-            flex-wrap: wrap;
+            gap: 2.5rem;
         }
 
         .cabecalho__menu__link {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--cor-terciaria);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--text-main);
             text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: color 0.3s;
         }
 
         .cabecalho__menu__link:hover {
-            color: var(--cor-secundaria);
-            transform: scale(1.05);
+            color: var(--accent);
         }
 
-        .titulo-destaque {
-            color: var(--cor-terciaria);
+        /* --- LAYOUT GERAL --- */
+        .secao {
+            padding: 6rem 10%;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .apresentacao {
-            padding: 5% 15%;
+        .titulo-secao {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .titulo-secao span {
+            color: var(--accent);
+        }
+
+        /* --- HERO (HOME) --- */
+        .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 82px;
-            min-height: 85vh;
+            gap: 4rem;
         }
 
-        .apresentacao__conteudo {
-            width: 50%;
+        .hero__conteudo {
+            flex: 1;
+        }
+
+        .hero__saudacao {
+            color: var(--accent);
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero__titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero__texto {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        /* Badges de Tecnologia */
+        .tech-stack {
             display: flex;
-            flex-direction: column;
-            gap: 40px;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
         }
 
-        .apresentacao__conteudo__titulo {
-            font-size: 2.25rem;
-            font-family: "Krona One", serif;
-            line-height: 1.3;
+        .tech-badge {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
-        .apresentacao__conteudo__texto {
-            font-size: 1.2rem;
-            font-family: "Montserrat", serif;
-            line-height: 1.6;
-            color: #d1d1d1;
-        }
-
-        .apresentacao__links {
+        .hero__links {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
             gap: 1.5rem;
         }
 
-        .apresentacao__links__subtitulo {
-            font-family: 'Krona one', sans-serif;
-            font-weight: 400;
-            font-size: 1.2rem;
-            margin-top: 1rem;
-        }
-
-        /* --- BOTÕES INTERATIVOS (NOVIDADE) --- */
-        .apresentacao__links__link {
+        .btn {
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 1rem;
-            border: 2px solid var(--cor-terciaria);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 8px;
-            font-size: 1.2rem;
-            padding: 15px 0;
             text-decoration: none;
-            color: var(--cor-secundaria);
-            font-family: "Montserrat", serif;
             font-weight: 600;
-            transition: all 0.3s ease; /* Transição suave */
+            transition: all 0.3s ease;
         }
 
-        .apresentacao__links__link img {
-            width: 24px; /* Padroniza o tamanho dos ícones */
-            transition: transform 0.3s ease;
+        .btn-primary {
+            background-color: var(--accent);
+            color: #fff;
         }
 
-        .apresentacao__links__link:hover {
-            background-color: var(--cor-hover);
-            transform: translateY(-5px); /* Efeito de flutuar */
-            box-shadow: 0 8px 20px rgba(34, 212, 253, 0.2); /* Sombra neon */
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
         }
 
-        .apresentacao__links__link:hover img {
-            transform: scale(1.2) rotate(5deg); /* Ícone interage ao passar o mouse */
+        .btn-secondary {
+            border: 1px solid var(--text-muted);
+            color: var(--text-main);
         }
 
-        .apresentacao__imagem {
-            max-width: 400px;
-            width: 50%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+            transform: translateY(-3px);
+        }
+
+        .btn img {
+            width: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .foto-perfil {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.05);
             transition: transform 0.5s ease;
         }
 
-        .apresentacao__imagem:hover {
-            transform: scale(1.03); /* Efeito de zoom sutil na sua foto */
+        .foto-perfil:hover {
+            transform: scale(1.02);
         }
 
-        .rodape {
+        /* --- PORTFÓLIO (CARDS) --- */
+        .grid-projetos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
             padding: 2rem;
-            color: var(--cor-primaria);
-            background-color: var(--cor-terciaria);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .card__icone {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card__titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card__texto {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card__link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card__link:hover {
+            text-decoration: underline;
+        }
+
+        /* --- SOBRE MIM --- */
+        .sobre-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 16px;
+        }
+
+        .sobre-container img {
+            width: 250px;
+            border-radius: 12px;
+        }
+
+        .sobre-texto p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        /* --- RODAPÉ --- */
+        .rodape {
             text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
+            padding: 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             margin-top: 2rem;
         }
 
-        @media (max-width: 1200px) {
-            .cabecalho { padding: 5%; justify-content: center; }
-            .cabecalho__menu { gap: 2rem; justify-content: center; }
-            .apresentacao { flex-direction: column-reverse; padding: 10% 5%; gap: 40px; }
-            .apresentacao__conteudo { width: 100%; text-align: center; }
-            .apresentacao__imagem { width: 70%; max-width: 350px; }
-            .apresentacao__links__link { width: 100%; }
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 992px) {
+            .hero, .sobre-container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero__links, .tech-stack {
+                justify-content: center;
+            }
+            .foto-perfil {
+                width: 280px;
+                height: 280px;
+            }
+            .titulo-secao {
+                font-size: 2rem;
+            }
+            .hero__titulo {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -197,59 +311,75 @@
     </header>
     
     <main>
-        <section id="home" class="apresentacao">
-            <div class="apresentacao__conteudo">
-                <h1 class="apresentacao__conteudo__titulo">Eleve seu negócio digital a outro nível 
-                    <strong class="titulo-destaque">com um Front-end de qualidade!</strong></h1>
-                <p class="apresentacao__conteudo__texto">Olá! Sou Heinrich Hoffman, Estudante de Análise e Desenvolvimento de Sistemas e aluno no programa Hello One.
-                    Atualmente desenvolvendo habilidades em HTML, CSS, JavaScript, Python e IA. Vamos conversar?</p>
+        <section id="home" class="secao hero">
+            <div class="hero__conteudo">
+                <span class="hero__saudacao">Olá, meu nome é</span>
+                <h1 class="hero__titulo">Heinrich Hoffman. <br><span style="color: var(--text-muted);">Desenvolvedor & Analista de Dados.</span></h1>
+                
+                <div class="tech-stack">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">IA & Machine Learning</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">HTML/CSS</span>
+                </div>
 
-                <div class="apresentacao__links">
-                    <h2 class="apresentacao__links__subtitulo">Acesse minhas redes</h2>
-                    <a class="apresentacao__links__link" href="https://www.linkedin.com/in/heinrich-hoffman/" target="_blank">
-                        <img src="./assets/linkedin.png" alt="Icone Linkedin">
+                <p class="hero__texto">Estudante de Análise e Desenvolvimento de Sistemas focado em criar soluções digitais inteligentes. Construo desde interfaces front-end até automações com Inteligência Artificial.</p>
+
+                <div class="hero__links">
+                    <a href="https://www.linkedin.com/in/heinrich-hoffman/" target="_blank" class="btn btn-primary">
+                        <img src="./assets/linkedin.png" alt="LinkedIn" onerror="this.style.display='none'">
                         LinkedIn
                     </a>
-                    <a class="apresentacao__links__link" href="https://github.com/heinrichhoffman" target="_blank">
-                        <img src="./assets/github.png" alt="Icone Github">
+                    <a href="https://github.com/heinrichhoffman" target="_blank" class="btn btn-secondary">
+                        <img src="./assets/github.png" alt="GitHub" onerror="this.style.display='none'">
                         GitHub
                     </a>
                 </div>            
             </div>
-            <img src="./assets/hoffman.png" alt="Foto de Heinrich Hoffman" class="apresentacao__imagem">
+            <img src="./assets/hoffman.png" alt="Foto de Heinrich Hoffman" class="foto-perfil">
         </section>    
 
-        <section id="portfolio" class="apresentacao">
-            <div class="apresentacao__conteudo" style="width: 100%; align-items: center; text-align: center;">
-                <h1 class="apresentacao__conteudo__titulo">Meu <strong class="titulo-destaque">Portfólio</strong></h1>
-                <p class="apresentacao__conteudo__texto" style="margin-bottom: 2rem;">Confira a organização dos meus projetos e versionamentos.</p>
-                
-                <div class="apresentacao__links" style="width: 100%; max-width: 600px;">
-                    <a class="apresentacao__links__link" href="https://github.com/heinrichhoffman/bootcamp_1/tree/main/projetos-academicos" target="_blank">
-                        🎓 Projetos Acadêmicos
-                    </a>
-                    <a class="apresentacao__links__link" href="https://github.com/heinrichhoffman/bootcamp_1/tree/main/projetos-pessoais" target="_blank">
-                        💻 Projetos Pessoais
-                    </a>
-                    <a class="apresentacao__links__link" href="https://github.com/heinrichhoffman/bootcamp_1/tree/main/documentacao" target="_blank">
-                        📄 Documentação
-                    </a>
+        <section id="portfolio" class="secao">
+            <h2 class="titulo-secao">Meu <span>Portfólio</span></h2>
+            
+            <div class="grid-projetos">
+                <div class="card">
+                    <div class="card__icone">🎓</div>
+                    <h3 class="card__titulo">Projetos Acadêmicos</h3>
+                    <p class="card__texto">Repositório dedicado aos trabalhos, estudos de caso e aplicações desenvolvidas durante o curso de Análise e Desenvolvimento de Sistemas.</p>
+                    <a class="card__link" href="https://github.com/heinrichhoffman/bootcamp_1/tree/main/projetos-academicos" target="_blank">Ver repositório ➔</a>
+                </div>
+
+                <div class="card">
+                    <div class="card__icone">💻</div>
+                    <h3 class="card__titulo">Projetos Pessoais</h3>
+                    <p class="card__texto">Minha "oficina" de código. Aqui exploro automações, scripts em Python, testes com Inteligência Artificial e projetos independentes.</p>
+                    <a class="card__link" href="https://github.com/heinrichhoffman/bootcamp_1/tree/main/projetos-pessoais" target="_blank">Ver repositório ➔</a>
+                </div>
+
+                <div class="card">
+                    <div class="card__icone">📄</div>
+                    <h3 class="card__titulo">Documentação</h3>
+                    <p class="card__texto">Material de apoio, arquitetura de projetos, notas de estudo e manuais estruturados com boas práticas de versionamento.</p>
+                    <a class="card__link" href="https://github.com/heinrichhoffman/bootcamp_1/tree/main/documentacao" target="_blank">Ver documentos ➔</a>
                 </div>
             </div>
         </section>
 
-        <section id="sobre" class="apresentacao">
-            <div class="apresentacao__conteudo">
-                <h1 class="apresentacao__conteudo__titulo">Sobre <strong class="titulo-destaque">Mim</strong></h1>
-                <p class="apresentacao__conteudo__texto">Estudante de Análise e Desenvolvimento de Sistemas no primeiro semestre, com grande interesse por tecnologia e desenvolvimento de soluções inovadoras. Busco aperfeiçoamento na linguagem Python, com foco em sua aplicação em Inteligência Artificial (IA), Aprendizado de Máquina e análise e manipulação de dados.</p>
-                <p class="apresentacao__conteudo__texto">Minha vivência profissional reforça minha capacidade de trabalhar em equipe, resolver problemas com eficiência e adaptar-me a diferentes desafios. Estou motivado a ampliar minhas competências na área de tecnologia, contribuindo com soluções inovadoras e impactantes.</p>
+        <section id="sobre" class="secao">
+            <h2 class="titulo-secao">Sobre <span>Mim</span></h2>
+            <div class="sobre-container">
+                <img src="./assets/hoffman.png" alt="Foto de Heinrich Hoffman">
+                <div class="sobre-texto">
+                    <p>Sou um entusiasta de tecnologia atualmente cursando o primeiro semestre de Análise e Desenvolvimento de Sistemas. Tenho um forte foco em <strong>Python</strong> e sua aplicação no ecossistema de <strong>Inteligência Artificial</strong> e Aprendizado de Máquina.</p>
+                    <p>Minha vivência profissional me ensinou o valor do trabalho em equipe e da resolução eficiente de problemas. Adoro transformar dados complexos e ideias abstratas em soluções reais e impactantes.</p>
+                </div>
             </div>
-            <img src="./assets/hoffman.png" alt="Foto de Heinrich Hoffman" class="apresentacao__imagem">
         </section>
     </main>
     
     <footer class="rodape">
-        <p>&copy; 2026 Desenvolvido por Heinrich Hoffman</p>
+        <p>&copy; 2026 Desenvolvido por Heinrich Hoffman.</p>
     </footer>
 </body>
 </html>
