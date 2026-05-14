@@ -1,4 +1,4 @@
-# 🚀 Portfólio Acadêmico e Profissional
+#  Portfólio Acadêmico e Profissional
 
 Bem-vindo ao meu repositório central de projetos! Este espaço foi criado para armazenar, versionar e organizar meus projetos acadêmicos e pessoais, com o objetivo de compor um perfil profissional estruturado.
 
