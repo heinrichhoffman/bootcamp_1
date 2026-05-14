@@ -1,7 +1,7 @@
 # 🎓 Projeto Acadêmico: [Nome do Projeto]
 
 ## 📝 Descrição
-Este projeto foi desenvolvido como parte das atividades acadêmicas do curso de Análise e Desenvolvimento de Sistemas. O objetivo principal foi aplicar na prática os conceitos de desenvolvimento web estudados ao longo do semestre, focando em usabilidade, estrutura de código e versionamento.
+Este projeto foi desenvolvido como parte das atividades acadêmicas do curso de Ciência da Computação. O objetivo principal foi aplicar na prática os conceitos de desenvolvimento web estudados ao longo do semestre, focando em usabilidade, estrutura de código e versionamento.
 
 ## 🎯 Objetivos de Aprendizado
 * Compreensão e estruturação de layouts responsivos.
