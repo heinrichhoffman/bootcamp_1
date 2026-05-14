@@ -1,16 +1,13 @@
 # 🎓 Projeto Acadêmico: 
 
 ## 📝 Descrição
-Este projeto foi desenvolvido como parte das atividades acadêmicas do curso de Ciência da Computação. O objetivo principal foi aplicar na prática os conceitos de desenvolvimento estudados ao longo do semestre, focando em usabilidade, estrutura de código e versionamento.
+Estes projetos foram desenvolvido como parte das atividades acadêmicas do curso de Ciência da Computação, na disciplina de Lógica de Programação. O objetivo principal foi aplicar na prática os conceitos de desenvolvimento estudados ao longo do semestre, focando em desenvolvimento da lógica de programação, técnicas para pensamento computacional e usabilidade.
 
-## 🎯 Objetivos de Aprendizado
-* Compreensão e estruturação de layouts responsivos.
-* Aplicação de boas práticas de HTML5 e CSS3.
-* Prática de versionamento de código utilizando Git e GitHub
+b
 
 ## 🛠️ Tecnologias Utilizadas
-* HTML5
-* CSS3
+* VS CODE
+* PYTHON
 * Git / GitHub
 
 ## ⚙️ Como visualizar
