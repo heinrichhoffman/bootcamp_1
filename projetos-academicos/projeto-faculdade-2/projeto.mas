@@ -1,0 +1,371 @@
+ORG 100
+
+/ ==========================================
+/ 1. LEITURA DOS DADOS
+/ ==========================================
+Input
+Store OP
+Input
+Store A
+Input
+Store B
+
+/ ==========================================
+/ 2. SWITCH DA OPERACAO
+/ ==========================================
+Load OP
+Subt UM
+SkipCond 400
+Jump CHK_SUB
+Jump DO_ADD
+
+CHK_SUB, Load OP
+Subt DOIS
+SkipCond 400
+Jump CHK_MUL
+Jump DO_SUB
+
+CHK_MUL, Load OP
+Subt TRES
+SkipCond 400
+Jump CHK_DIV
+Jump DO_MUL
+
+CHK_DIV, Load OP
+Subt QUATRO
+SkipCond 400
+Jump DO_ERR
+Jump DO_DIV
+
+/ ==========================================
+/ 3. BLOCOS MATEMATICOS
+/ ==========================================
+DO_ADD, Load A
+Add B
+Store RES
+Jump CHK_DISP
+
+DO_SUB, Load A
+Subt B
+SkipCond 000 / Checa se deu negativo (menor que zero)
+Jump SUB_POS
+/ Se deu negativo: Liga o alerta e inverte a conta (B - A)
+Load UM
+Store NEG_FLAG
+Load B
+Subt A
+Store RES
+Jump CHK_DISP
+SUB_POS, Store RES
+Jump CHK_DISP
+
+DO_MUL, Clear
+Store RES
+Load B
+SkipCond 400
+Jump MUL_LOOP
+Jump CHK_DISP
+MUL_LOOP, Load RES
+Add A
+Store RES
+Load B
+Subt UM
+Store B
+SkipCond 400
+Jump MUL_LOOP
+Jump CHK_DISP
+
+DO_DIV, Load B
+SkipCond 400
+Jump DIV_OK
+Jump DO_ERR 
+
+DIV_OK, Clear
+Store RES
+Load A
+DIV_LOOP, Subt B
+SkipCond 000
+Jump DIV_STEP
+Jump CHK_DISP
+DIV_STEP, Store A
+Load RES
+Add UM
+Store RES
+Load A
+SkipCond 400
+Jump DIV_LOOP
+Jump CHK_DISP
+
+/ ==========================================
+/ 4. ROTEAMENTO PARA O DISPLAY
+/ ==========================================
+CHK_DISP, Load RES
+Output          / Imprime no log de texto!
+
+/ Checa se precisa pintar o pixel vermelho de negativo
+Load NEG_FLAG
+SkipCond 400
+Jump PINTA_NEG
+Jump TST_LIMITS
+
+PINTA_NEG, Load RED
+StoreI P40      / Pinta um pixel vermelho no meio esquerdo
+
+/ Testa qual numero desenhar
+TST_LIMITS, Load RES
+Subt ZERO
+SkipCond 400
+Jump TST_1
+Jump DES_0
+
+TST_1, Load RES
+Subt UM
+SkipCond 400
+Jump TST_2
+Jump DES_1
+
+TST_2, Load RES
+Subt DOIS
+SkipCond 400
+Jump TST_3
+Jump DES_2
+
+TST_3, Load RES
+Subt TRES
+SkipCond 400
+Jump TST_4
+Jump DES_3
+
+TST_4, Load RES
+Subt QUATRO
+SkipCond 400
+Jump TST_5
+Jump DES_4
+
+TST_5, Load RES
+Subt CINCO
+SkipCond 400
+Jump TST_6
+Jump DES_5
+
+TST_6, Load RES
+Subt SEIS
+SkipCond 400
+Jump TST_7
+Jump DES_6
+
+TST_7, Load RES
+Subt SETE
+SkipCond 400
+Jump TST_8
+Jump DES_7
+
+TST_8, Load RES
+Subt OITO
+SkipCond 400
+Jump TST_9
+Jump DES_8
+
+TST_9, Load RES
+Subt NOVE
+SkipCond 400
+Jump DO_ERR 
+Jump DES_9
+
+/ ==========================================
+/ 5. DESENHO NO DISPLAY (E = Erro)
+/ ==========================================
+DO_ERR, Load ON
+StoreI P21 
+StoreI P22 
+StoreI P23
+StoreI P31
+StoreI P41 
+StoreI P42 
+StoreI P43
+StoreI P51
+StoreI P61 
+StoreI P62 
+StoreI P63
+Halt
+
+DES_0, Load ON
+StoreI P21 
+StoreI P22 
+StoreI P23
+StoreI P31 
+StoreI P33
+StoreI P41 
+StoreI P43
+StoreI P51 
+StoreI P53
+StoreI P61 
+StoreI P62 
+StoreI P63
+Halt
+
+DES_1, Load ON
+StoreI P22
+StoreI P31 
+StoreI P32
+StoreI P42
+StoreI P52
+StoreI P61 
+StoreI P62 
+StoreI P63
+Halt
+
+DES_2, Load ON
+StoreI P21 
+StoreI P22 
+StoreI P23
+StoreI P33
+StoreI P41 
+StoreI P42 
+StoreI P43
+StoreI P51
+StoreI P61 
+StoreI P62 
+StoreI P63
+Halt
+
+DES_3, Load ON
+StoreI P21 
+StoreI P22 
+StoreI P23
+StoreI P33
+StoreI P41 
+StoreI P42 
+StoreI P43
+StoreI P53
+StoreI P61 
+StoreI P62 
+StoreI P63
+Halt
+
+DES_4, Load ON
+StoreI P21 
+StoreI P31 
+StoreI P41
+StoreI P23 
+StoreI P33 
+StoreI P43
+StoreI P42
+StoreI P53 
+StoreI P63
+Halt
+
+DES_5, Load ON
+StoreI P21 
+StoreI P22 
+StoreI P23
+StoreI P31
+StoreI P41 
+StoreI P42 
+StoreI P43
+StoreI P53
+StoreI P61 
+StoreI P62 
+StoreI P63
+Halt
+
+DES_6, Load ON
+StoreI P21 
+StoreI P22 
+StoreI P23
+StoreI P31
+StoreI P41 
+StoreI P42 
+StoreI P43
+StoreI P51 
+StoreI P53
+StoreI P61 
+StoreI P62 
+StoreI P63
+Halt
+
+DES_7, Load ON
+StoreI P21 
+StoreI P22 
+StoreI P23
+StoreI P33
+StoreI P43
+StoreI P53
+StoreI P63
+Halt
+
+DES_8, Load ON
+StoreI P21 
+StoreI P22 
+StoreI P23
+StoreI P31 
+StoreI P33
+StoreI P41 
+StoreI P42 
+StoreI P43
+StoreI P51 
+StoreI P53
+StoreI P61 
+StoreI P62 
+StoreI P63
+Halt
+
+DES_9, Load ON
+StoreI P21 
+StoreI P22 
+StoreI P23
+StoreI P31 
+StoreI P33
+StoreI P41 
+StoreI P42 
+StoreI P43
+StoreI P53
+StoreI P61 
+StoreI P62 
+StoreI P63
+Halt
+
+/ ==========================================
+/ 6. MEMORIA E PONTEIROS
+/ ==========================================
+OP, DEC 0
+A, DEC 0
+B, DEC 0
+RES, DEC 0
+NEG_FLAG, DEC 0  / Alerta de numero negativo
+
+ZERO, DEC 0
+UM, DEC 1
+DOIS, DEC 2
+TRES, DEC 3
+QUATRO, DEC 4
+CINCO, DEC 5
+SEIS, DEC 6
+SETE, DEC 7
+OITO, DEC 8
+NOVE, DEC 9
+
+ON, HEX FFFF     / Cor Branca
+RED, HEX F000    / Cor Vermelha
+
+P40, HEX 0F40    / Pixel do sinal de menos
+
+P21, HEX 0F21
+P22, HEX 0F22
+P23, HEX 0F23
+
+P31, HEX 0F31
+P32, HEX 0F32
+P33, HEX 0F33
+
+P41, HEX 0F41
+P42, HEX 0F42
+P43, HEX 0F43
+
+P51, HEX 0F51
+P52, HEX 0F52
+P53, HEX 0F53
+
+P61, HEX 0F61
+P62, HEX 0F62
+P63, HEX 0F63
