@@ -6,7 +6,7 @@ Este projeto foi desenvolvido como parte das atividades acadêmicas do curso de 
 ## 🎯 Objetivos de Aprendizado
 * Compreensão e estruturação de layouts responsivos.
 * Aplicação de boas práticas de HTML5 e CSS3.
-* [cite_start]Prática de versionamento de código utilizando Git e GitHub[cite: 16, 17].
+* Prática de versionamento de código utilizando Git e GitHub
 
 ## 🛠️ Tecnologias Utilizadas
 * HTML5
