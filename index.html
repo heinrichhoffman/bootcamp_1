@@ -1,145 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Heinrich Hoffman</title>
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --bg-color: #f8fafc;
-            --text-color: #1e293b;
-            --card-bg: #ffffff;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        h2 {
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        .card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-        .card a {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-        .card a:hover {
-            background-color: #1d4ed8;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            background-color: #1e293b;
-            color: white;
-        }
-        footer a {
-            color: #60a5fa;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-    </style>
+    <title>Portfólio</title>
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
+    <header class ="cabecalho">
+        <nav class="cabecalho__menu">
+            <a class="cabecalho__menu__link" href="index.html">Home</a>
+            <a class="cabecalho__menu__link" href="about.html">Sobre Mim</a>
+        </nav>    
 
-    <header>
-        <h1>Heinrich Hoffman</h1>
-        <p>Desenvolvedor | Portfólio de Projetos</p>
+
+
+
+
+
     </header>
 
-    <div class="container">
-        <p>Bem-vindo ao meu portfólio! Este espaço foi desenvolvido para organizar e apresentar meus projetos acadêmicos e pessoais [cite: 5], além de aplicar boas práticas de versionamento com Git e GitHub[cite: 11, 12].</p>
 
-        <h2>🎓 Projetos Acadêmicos</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Projeto Faculdade 1</h3>
-                <p>Desenvolvimento de uma aplicação web com foco em usabilidade e boas práticas de código.</p>
-                <a href="https://github.com/heinrichhoffman/bootcamp_1/tree/main/projetos-academicos/projeto-faculdade-1" target="_blank">Ver no GitHub</a>
-            </div>
-            <div class="card">
-                <h3>Projeto Faculdade 2</h3>
-                <p>Estudo de caso e implementação de algoritmos de otimização de dados.</p>
-                <a href="https://github.com/heinrichhoffman/bootcamp_1/tree/main/projetos-academicos/projeto-faculdade-2" target="_blank">Ver no GitHub</a>
-            </div>
-        </div>
+    
+    
+    <main class="apresentacao">
+        <section class="apresentacao__conteudo">
 
-        <h2>💻 Projetos Pessoais</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Meu Projeto 3</h3>
-                <p>Automação de tarefas diárias utilizando scripts e integração com APIs externas.</p>
-                <a href="https://github.com/heinrichhoffman/bootcamp_1/tree/main/projetos-pessoais/meu-projeto-3" target="_blank">Ver no GitHub</a>
-            </div>
-        </div>
+        
+     
+            <h1 class="=apresentacao__conteudo__titulo">Eleve seu negócio digital a outro nível 
+                <strong class="titulo-destaque">com um Front-end de qualidade!</strong></h1>
+                <p class="apresentacao__conteudo__texto">Olá! Sou Heinrich Hoffman, Estudante de análise e desenvolvimento de sistemas e aluno no programa Hello One.
+                Atualmente desenvolvendo habilidades em HTML, CSS, JavaScript, Python e AI. Vamos conversar?</p>
 
-        <h2>📄 Documentação</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Slides e Apresentações</h3>
-                <p>Material de apoio e documentação detalhada sobre as entregas e arquitetura dos projetos.</p>
-                <a href="https://github.com/heinrichhoffman/bootcamp_1/tree/main/documentacao" target="_blank">Acessar Documentos</a>
-            </div>
-        </div>
-    </div>
+            <div class="apresentacao__links">
+                <h2 class="apresentacao__links__subtitulo">Acesse minhas redes</h2>
+                <a class="apresentacao__links__link" href="https://www.linkedin.com/in/heinrich-hoffman/">
+                    <img src="/assets/linkedin.png" alt="Linkedin">
+                    Linkedin
+                </a>
+                <a class="apresentacao__links__link" href="https://github.com/heinrichhoffman">
+                    <img src="/assets/github.png" alt="Github">
+                    
+                    Github
+                </a>
+            </div>            
+        </section>
+        
+        <img src="/assets/hoffman.png" alt="Imagem Programa ONE" class="apresentacao__imagem">
 
-    <footer>
-        <p>&copy; 2026 Heinrich Hoffman</p>
-        <p>
-            <a href="https://github.com/heinrichhoffman" target="_blank">GitHub</a> | 
-            <a href="https://www.linkedin.com/in/heinrich-hoffman/" target="_blank">LinkedIn</a>
-        </p>
+    </main>    
+    
+    <footer class="rodape">
+        <p>Desenvolvido por Heinrich Hoffman</p>
     </footer>
-
+    
 </body>
 </html>
