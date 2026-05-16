@@ -6,18 +6,20 @@
     <title>Heinrich Hoffman | Portfólio</title>
     
     <style>
-        /* Importando fontes modernas */
+        /* --- FONTES --- */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;600;700&display=swap');
 
+        /* --- VARIÁVEIS DE CORES (DARK MODE MODERNO) --- */
         :root {
-            --bg-color: #0f172a; /* Slate 900 - Dark mode moderno */
+            --bg-color: #0f172a; /* Fundo principal */
             --card-bg: #1e293b; /* Fundo dos cartões */
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8; /* Azul Tech */
+            --text-main: #f8fafc; /* Texto principal claro */
+            --text-muted: #94a3b8; /* Texto secundário acinzentado */
+            --accent: #38bdf8; /* Azul neon (Destaque) */
             --accent-hover: #0284c7;
         }
 
+        /* --- RESET E GERAL --- */
         * {
             margin: 0;
             padding: 0;
@@ -41,7 +43,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- NAVEGAÇÃO GLASSMORPHISM --- */
+        /* --- CABEÇALHO (GLASSMORPHISM) --- */
         .cabecalho {
             position: sticky;
             top: 0;
@@ -57,6 +59,7 @@
         .cabecalho__menu {
             display: flex;
             gap: 2.5rem;
+            flex-wrap: wrap;
         }
 
         .cabecalho__menu__link {
@@ -71,7 +74,7 @@
             color: var(--accent);
         }
 
-        /* --- LAYOUT GERAL --- */
+        /* --- LAYOUT DE SEÇÕES --- */
         .secao {
             padding: 6rem 10%;
             min-height: 80vh;
@@ -145,6 +148,7 @@
         .hero__links {
             display: flex;
             gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -248,6 +252,123 @@
             text-decoration: underline;
         }
 
+        /* --- CERTIFICAÇÕES --- */
+        .grid-certificacoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateX(8px);
+            background-color: rgba(30, 41, 59, 0.8);
+        }
+
+        .cert-instituicao {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cert-titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .cert-info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* --- EXPERIÊNCIA E FORMAÇÃO (TIMELINE) --- */
+        .secao-dupla {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 2rem 0;
+        }
+
+        .timeline-titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.9rem;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .timeline-data {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .timeline-cargo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-local {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-texto {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
         /* --- SOBRE MIM --- */
         .sobre-container {
             display: flex;
@@ -261,6 +382,7 @@
         .sobre-container img {
             width: 250px;
             border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .sobre-texto p {
@@ -280,23 +402,14 @@
 
         /* --- RESPONSIVIDADE --- */
         @media (max-width: 992px) {
-            .hero, .sobre-container {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-            .hero__links, .tech-stack {
-                justify-content: center;
-            }
-            .foto-perfil {
-                width: 280px;
-                height: 280px;
-            }
-            .titulo-secao {
-                font-size: 2rem;
-            }
-            .hero__titulo {
-                font-size: 2.5rem;
-            }
+            .cabecalho { justify-content: center; }
+            .hero, .sobre-container { flex-direction: column-reverse; text-align: center; }
+            .hero__links, .tech-stack { justify-content: center; }
+            .foto-perfil { width: 280px; height: 280px; }
+            .titulo-secao { font-size: 2rem; }
+            .hero__titulo { font-size: 2.5rem; }
+            .secao-dupla { grid-template-columns: 1fr; gap: 3rem; }
+            .sobre-container img { width: 200px; }
         }
     </style>
 </head>
@@ -306,6 +419,8 @@
         <nav class="cabecalho__menu">
             <a class="cabecalho__menu__link" href="#home">Home</a>
             <a class="cabecalho__menu__link" href="#portfolio">Portfólio</a>
+            <a class="cabecalho__menu__link" href="#certificacoes">Certificações</a>
+            <a class="cabecalho__menu__link" href="#experiencia">Experiência</a>
             <a class="cabecalho__menu__link" href="#sobre">Sobre Mim</a>
         </nav>      
     </header>
@@ -314,16 +429,17 @@
         <section id="home" class="secao hero">
             <div class="hero__conteudo">
                 <span class="hero__saudacao">Olá, meu nome é</span>
-                <h1 class="hero__titulo">Heinrich Hoffman. <br><span style="color: var(--text-muted);">Cientista da Computação e de Dados em Formação.</span></h1>
+                <h1 class="hero__titulo">Heinrich Hoffman. <br><span style="color: var(--text-muted);">Desenvolvedor & Analista de Dados.</span></h1>
                 
                 <div class="tech-stack">
                     <span class="tech-badge">Python</span>
                     <span class="tech-badge">IA & Machine Learning</span>
                     <span class="tech-badge">JavaScript</span>
                     <span class="tech-badge">HTML/CSS</span>
+                    <span class="tech-badge">SQL</span>
                 </div>
 
-                <p class="hero__texto">Assistente de Inteligência de Dados, Estudante de Ciência da Computação e Ciência de Dados focado em criar soluções digitais inteligentes, mediante análise de dados e automação de processos. Possuo grande interesse em Analisar Dados, Gerar Dashboards e Insights profissionais para apoio em tomada de decisão.</p>
+                <p class="hero__texto">Estudante de Ciência da Computação e Ciência de Dados focado em criar soluções digitais inteligentes. Construo desde interfaces front-end até análises de dados e automações com Inteligência Artificial.</p>
 
                 <div class="hero__links">
                     <a href="https://www.linkedin.com/in/heinrich-hoffman/" target="_blank" class="btn btn-primary">
@@ -346,7 +462,7 @@
                 <div class="card">
                     <div class="card__icone">🎓</div>
                     <h3 class="card__titulo">Projetos Acadêmicos</h3>
-                    <p class="card__texto">Repositório dedicado aos trabalhos, estudos de caso e aplicações desenvolvidas durante o curso de Ciência de Dados.</p>
+                    <p class="card__texto">Repositório dedicado aos trabalhos, estudos de caso e aplicações desenvolvidas durante a graduação em Ciência da Computação.</p>
                     <a class="card__link" href="https://github.com/heinrichhoffman/bootcamp_1/tree/main/projetos-academicos" target="_blank">Ver repositório ➔</a>
                 </div>
 
@@ -366,13 +482,138 @@
             </div>
         </section>
 
+        <section id="certificacoes" class="secao">
+            <h2 class="titulo-secao">Minhas <span>Certificações</span></h2>
+            
+            <div class="grid-certificacoes">
+                <div class="cert-card">
+                    <div class="cert-instituicao">🥇 IBM & Coursera</div>
+                    <h3 class="cert-titulo">Python for Data Science, AI & Development</h3>
+                    <div class="cert-info"><span>Dezembro, 2025</span></div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-instituicao">🥇 IBM & Coursera</div>
+                    <h3 class="cert-titulo">Introduction to Data Analytics</h3>
+                    <div class="cert-info"><span>Novembro, 2025</span></div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-instituicao">🎓 Oracle Next Education & Alura</div>
+                    <h3 class="cert-titulo">Formação Estatística e Machine Learning</h3>
+                    <div class="cert-info"><span>61 horas</span> <span>Agosto, 2025</span></div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-instituicao">🎓 Oracle Next Education & Alura</div>
+                    <h3 class="cert-titulo">Consultas SQL com MySQL Server</h3>
+                    <div class="cert-info"><span>48 horas</span> <span>Novembro, 2025</span></div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-instituicao">🎓 Oracle Next Education & Alura</div>
+                    <h3 class="cert-titulo">Formação IA Generativa</h3>
+                    <div class="cert-info"><span>22 horas</span> <span>Setembro, 2025</span></div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-instituicao">🎓 Oracle Next Education & Alura</div>
+                    <h3 class="cert-titulo">Iniciante em Programação</h3>
+                    <div class="cert-info"><span>70 horas</span> <span>Fevereiro, 2025</span></div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-instituicao">🏛️ ENAP</div>
+                    <h3 class="cert-titulo">Introdução à Ciência de Dados</h3>
+                    <div class="cert-info"><span>4 horas</span> <span>Outubro, 2025</span></div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-instituicao">🎓 Oracle Next Education & Alura</div>
+                    <h3 class="cert-titulo">Empreendedorismo e Protagonismo</h3>
+                    <div class="cert-info"><span>47 horas</span> <span>Abril, 2025</span></div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-instituicao">🎓 Oracle Next Education & Alura</div>
+                    <h3 class="cert-titulo">Formação Desenvolvimento Pessoal</h3>
+                    <div class="cert-info"><span>36 horas</span> <span>Janeiro, 2025</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiencia" class="secao">
+            <h2 class="titulo-secao">Trajetória e <span>Experiência</span></h2>
+            
+            <div class="secao-dupla">
+                <div>
+                    <h3 class="timeline-titulo">💼 Experiência Profissional</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-data">Presente</span>
+                            <h4 class="timeline-cargo">Assistente de Tecnologia da Informação</h4>
+                            <div class="timeline-local">Embratur | Brasília, DF</div>
+                            <p class="timeline-texto">Atuação na gestão da informação, elaboração de relatórios analíticos, sistematização de dados e suporte técnico a sistemas de gestão institucionais.</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-data">Jan 2020 - Ago 2025</span>
+                            <h4 class="timeline-cargo">Militar (Cadete Aviador e Aluno EPCAR)</h4>
+                            <div class="timeline-local">Força Aérea Brasileira</div>
+                            <p class="timeline-texto">Gestão de recursos e liderança de equipas. Experiência sólida em administração financeira, organização de eventos, tutoria académica e relações públicas institucionais.</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-data">Dez 2024 - Jan 2025</span>
+                            <h4 class="timeline-cargo">Auxiliar de Atendimento</h4>
+                            <div class="timeline-local">Lojas Americanas | Brasília, DF</div>
+                            <p class="timeline-texto">Forte contacto com o público, desenvolvendo resiliência, organização ágil de stock e gestão de processos dinâmicos e vendas sob pressão.</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-data">Mar 2019 - Ago 2019</span>
+                            <h4 class="timeline-cargo">Estagiário</h4>
+                            <div class="timeline-local">Superior Tribunal de Justiça (STJ)</div>
+                            <p class="timeline-texto">Gestão de processos eletrónicos e físicos, receção e atendimento, familiarizando-me com fluxos de trabalho organizacionais de alto nível.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="timeline-titulo">🎓 Formação Académica</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-data">Jan 2026 - Dez 2029</span>
+                            <h4 class="timeline-cargo">Bacharelato em Ciência da Computação</h4>
+                            <div class="timeline-local">Centro Universitário de Brasília (CEUB)</div>
+                            <p class="timeline-texto">Formação em engenharia de software, estruturas de dados, algoritmos avançados e desenvolvimento de sistemas.</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-data">Nov 2025 - Abr 2028</span>
+                            <h4 class="timeline-cargo">Tecnólogo em Ciência de Dados</h4>
+                            <div class="timeline-local">Gran Centro Universitário</div>
+                            <p class="timeline-texto">Estudo aprofundado em análise preditiva, extração de dados, Machine Learning e metodologias quantitativas aplicadas ao negócio.</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-data">2026 - Presente</span>
+                            <h4 class="timeline-cargo">Estudos de Idiomas</h4>
+                            <div class="timeline-local">Aliança Francesa & Fisk</div>
+                            <p class="timeline-texto">Inglês intermédio-avançado (B1-B2) e introdução ao Francês (A1), ampliando a capacidade de comunicação e leitura de documentação técnica global.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="sobre" class="secao">
             <h2 class="titulo-secao">Sobre <span>Mim</span></h2>
             <div class="sobre-container">
                 <img src="./assets/hoffman.png" alt="Foto de Heinrich Hoffman">
                 <div class="sobre-texto">
-                    <p>Sou um entusiasta de tecnologia atualmente cursando o primeiro semestre de Ciência da Computação. Tenho um forte foco em <strong>Python</strong> e sua aplicação no ecossistema de <strong>Inteligência Artificial</strong> e Aprendizado de Máquina.</p>
-                    <p>Minha vivência profissional me ensinou o valor do trabalho em equipe e da resolução eficiente de problemas. Adoro transformar dados complexos e ideias abstratas em soluções reais e impactantes.</p>
+                    <p>Sou um entusiasta de tecnologia, cursando Ciência da Computação e Ciência de Dados. Tenho um forte foco em <strong>Python, SQL</strong> e sua aplicação no ecossistema de <strong>Inteligência Artificial</strong> e Análise de Dados.</p>
+                    <p>Minha vivência profissional na Força Aérea Brasileira e em instituições públicas (STJ e Embratur) me ensinou o valor da liderança, do trabalho em equipe e da resolução metódica de problemas. Adoro transformar dados complexos e ideias abstratas em soluções reais e impactantes.</p>
                 </div>
             </div>
         </section>
